@@ -50,7 +50,7 @@ function getFile(key, name, callback)
   var id = $('.action-bar__top-links a').attr('href');
   id = id.substring(0, id.indexOf("/editor"));
   var url = id + "/assets?asset%5Bkey%5D=" + key + "%2F" + name;
-
+  debugger;
   var xhr = new XMLHttpRequest();
 xhr.open('GET', url, true);
 //xhr.responseType = 'text';

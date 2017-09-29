@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //createButtons();
+  createButtons();
 });
 
 function createButtons() {
@@ -8,10 +8,10 @@ function createButtons() {
     {
    bhCssFile = $('<input type="button" value="CSS" class="btn bh-btn bhCssFile" />');
    bhCssFile.prependTo($('.theme-asset-actions'));
+   bhCssFile.click(function(){
+     createBoldCss();
+   });
   }
-  bhBoldHelpers.click(function(){
-    createBoldHelpers();
-  });
   bhBoldHelpers = $('.bhBoldHelpers');
   if (bhBoldHelpers.length === 0)
     {
@@ -24,6 +24,25 @@ function createButtons() {
 }
 function createBoldCss()
 {
+  debugger
+  $('.add-theme-asset')[4].click();
+
+  setTimeout(function(){
+ $('*[data-tab="blank"]')[0].click();
+  $('.next-input', '#modal_container')[0].value = "bold-helper-custom";
+  $('#new-asset-extension')[0].value = ".css";
+  var submitBtn = $($('.js-btn-primary')[1]);
+  $('#new-asset-extension').trigger('change');
+  $('.next-input', '#modal_container').keyup();
+  if(!submitBtn.hasClass('hide'))
+  {
+    submitBtn[0].click()
+  }
+  else
+  {
+    $('.close-modal').click();
+  }
+}, 500);
   console.log("hi hey there hello");
 }
 function createBoldHelpers()
